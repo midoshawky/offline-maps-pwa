@@ -4,6 +4,8 @@ A Progressive Web App (PWA) that provides offline map functionality using Leafle
 
 ## ✨ Features
 
+
+
 - **Offline Map Support**: View maps even when offline using cached tiles
 - **Interactive Polygons**: Display and interact with polygon areas on the map
 - **Custom Markers**: Add and manage location markers with popup information
