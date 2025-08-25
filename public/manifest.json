@@ -1,11 +1,12 @@
 {
+  "id": "offline-maps-pwa",
   "short_name": "Offline Maps",
   "name": "Offline Maps PWA",
   "description": "A Progressive Web App for offline map viewing with polygons and markers",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
@@ -21,12 +22,13 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#4CAF50",
   "background_color": "#ffffff",
   "orientation": "portrait-primary",
   "scope": "/",
   "categories": ["navigation", "travel", "utilities"],
-  "lang": "en"
+  "lang": "en",
+  "prefer_related_applications": false
 }

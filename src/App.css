@@ -11,6 +11,7 @@
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   z-index: 2;
+  position: relative;
 }
 
 .App-header h1 {
@@ -23,6 +24,78 @@
   margin: 0.5rem 0 0 0;
   font-size: 1rem;
   opacity: 0.9;
+}
+
+/* Install PWA Button Styles */
+.header-install-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.install-pwa-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.install-pwa-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.install-pwa-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.install-pwa-button.installable {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.install-pwa-button.manual {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.install-hint {
+  font-size: 11px;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.install-tip {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 main {
@@ -178,6 +251,17 @@ main {
     font-size: 0.9rem;
   }
   
+  .header-install-button {
+    position: static;
+    margin-top: 1rem;
+  }
+  
+  .install-pwa-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+  
   .map-status-bar {
     padding: 8px 12px;
     font-size: 12px;
@@ -226,6 +310,12 @@ main {
   .status-indicator {
     font-size: 10px;
     padding: 4px 8px;
+  }
+  
+  .install-pwa-button {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 90px;
   }
 }
 
