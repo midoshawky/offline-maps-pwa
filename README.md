@@ -1,46 +1,159 @@
-# Getting Started with Create React App
+# 🗺️ Offline Maps PWA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Progressive Web App (PWA) that provides offline map functionality using Leaflet.js with support for polygons and markers.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **Offline Map Support**: View maps even when offline using cached tiles
+- **Interactive Polygons**: Display and interact with polygon areas on the map
+- **Custom Markers**: Add and manage location markers with popup information
+- **PWA Functionality**: Install as a native app on mobile and desktop devices
+- **Responsive Design**: Works seamlessly across all device sizes
+- **Real-time Status**: Shows online/offline status and tile caching information
 
-### `npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (v16 or higher)
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd offline-maps-pwa
+```
 
-### `npm run build`
+2. Install dependencies:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Building for Production
 
-### `npm run eject`
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📱 PWA Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Desktop
+1. Open the app in Chrome/Edge
+2. Click the install icon in the address bar
+3. Follow the installation prompts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Mobile
+1. Open the app in Chrome/Safari
+2. Tap the "Add to Home Screen" option
+3. The app will be installed as a native app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🗺️ Map Features
 
-## Learn More
+### Default Map Content
+The app comes with sample data for New York City:
+- **Downtown Area**: Red polygon representing the financial district
+- **Midtown Area**: Blue polygon representing the shopping district
+- **Times Square**: Marker for the famous intersection
+- **Penn Station**: Marker for the transportation hub
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Customizing the Map
+You can customize the map by passing features to the `OfflineMap` component:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```tsx
+const customFeatures = [
+  {
+    id: 'custom-area',
+    type: 'polygon',
+    coordinates: [[lat1, lng1], [lat2, lng2], [lat3, lng3]],
+    properties: {
+      name: 'Custom Area',
+      description: 'Description of the area',
+      color: 'green',
+      fillColor: '#0f0',
+      fillOpacity: 0.4
+    }
+  },
+  {
+    id: 'custom-marker',
+    type: 'marker',
+    coordinates: [lat, lng],
+    properties: {
+      name: 'Custom Location',
+      description: 'Description of the location'
+    }
+  }
+];
+
+<OfflineMap features={customFeatures} />
+```
+
+## 🔧 Technical Details
+
+### Service Worker
+- Caches app resources for offline functionality
+- Handles tile caching for map data
+- Provides update notifications
+
+### Offline Support
+- Map tiles are cached as they're loaded
+- App works completely offline after initial load
+- Automatic fallback to cached content
+
+### Map Controls
+- **Zoom**: Standard zoom in/out controls
+- **Scale**: Distance scale indicator
+- **Fullscreen**: Toggle fullscreen mode
+- **Layer Control**: Toggle visibility of polygons and markers
+
+## 🎨 Customization
+
+### Styling
+The app uses CSS custom properties and can be easily themed by modifying:
+- `src/App.css` - Main application styles
+- Component-specific styles in each component file
+
+### Map Configuration
+Modify map settings in `src/components/OfflineMap.tsx`:
+- Default center coordinates
+- Default zoom level
+- Tile layer sources
+- Control positions
+
+## 📱 Browser Support
+
+- Chrome 67+
+- Firefox 60+
+- Safari 11.1+
+- Edge 79+
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- [Leaflet.js](https://leafletjs.com/) - Open-source mapping library
+- [OpenStreetMap](https://www.openstreetmap.org/) - Free map data
+- [React](https://reactjs.org/) - UI library
+- [PWA](https://web.dev/progressive-web-apps/) - Progressive Web App standards
+
+## 📞 Support
+
+For questions or issues, please open a GitHub issue or contact the development team.
